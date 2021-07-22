@@ -1,4 +1,5 @@
-import 'package:digital_stores/screens/categories.dart';
+import 'package:digital_stores/screens/chat/Chats.dart';
+import 'package:digital_stores/screens/nav_categories/categories.dart';
 import 'package:digital_stores/screens/home/Home.dart';
 import 'package:digital_stores/screens/settings/Settings.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,11 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List<Widget> navigationWidgets = <Widget>[
+    //TODO: add a instance of nav bar components in order if page is made and dont forget to add that page in route
     Home(),
     Categories(),
+    Chats(),
+    Settings(),
 
 
   ];
@@ -54,8 +58,8 @@ class _MainPageState extends State<MainPage> {
             label: 'Category',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
+              icon: Icon(Icons.chat_bubble),
+              label: 'Chats',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
