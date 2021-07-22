@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'subcategory.dart';
 class Category extends StatefulWidget {
-
-
   @override
   State<Category> createState() => _CategoryState();
 }
 
 class _CategoryState extends State<Category> {
-   List<Widget> gridCategory = getGridViewCategory();
+   // List<Widget> gridCategory = getGridViewCategory();
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return
       SingleChildScrollView(
@@ -42,11 +40,10 @@ class _CategoryState extends State<Category> {
                 ],
               ),
               Container(
-
                 padding: EdgeInsets.symmetric(horizontal: 12),
                 transform: Matrix4.translationValues(0.0, -30.0, 0.0),
                 child: Column(
-                  children: gridCategory,
+                  children: getGridViewCategory(),
                 ),
               ),
               SizedBox(
@@ -56,17 +53,10 @@ class _CategoryState extends State<Category> {
           ),
         ),
       );
-
-
   }
-}
-
-
 
 List<Widget> getGridViewCategory(){
-
   // this lc (list of category) will can be fetched from firebase later on.
-
   List<ShopCategory> lc = [ShopCategory(title: "Clothing" , icon: Icons.home),
     ShopCategory(title: "CLothing and tailoring and suiting" , icon: Icons.category_rounded
     ),
@@ -78,57 +68,42 @@ List<Widget> getGridViewCategory(){
     ShopCategory(title: "CLothing" , icon: Icons.person_add),
     ShopCategory(title: "CLothing" , icon: Icons.person_add),
     ShopCategory(title: "CLothing" , icon: Icons.person_add),
-
   ];
   List<Widget> wc = [];
   for(int i = 0; i < lc.length / 2; i++){
     Widget w;
     w = Row(
       children: <Widget>[
-
-
-        getItemViewGrid(lc[i*2]),
-
+        getItemViewGrid(  lc[i*2]),
         Container(width: 2),
-
-        getItemViewGrid(lc[(i*2)+1]),
-
-
-
+        getItemViewGrid( lc[(i*2)+1]),
       ],
     );
-
     wc.add(w);
   }
   return wc;
 }
 
-Widget getItemViewGrid(ShopCategory s){
+Widget getItemViewGrid( ShopCategory s ){
   return Expanded(
     flex: 1,
     child: Container(
-
       padding: EdgeInsets.all(2),
-
       child: InkWell(
         onTap: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SubCategory()),
+          );
           print("Card clicked");
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => Container()()),
-          // );
         },
         splashColor: Colors.purple,
-
         child: Card(
-
-
           shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5),),
-          color: Colors.grey[200],
+          color: Colors.white,
           elevation: 3,
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Container(
-
             height: 120,
             alignment: Alignment.center,
             padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -153,13 +128,11 @@ Widget getItemViewGrid(ShopCategory s){
   );
 }
 
-
+}
 class ShopCategory{
   String? title;
   IconData? icon ;
-
   ShopCategory({this.title , this.icon});
-
 }
 
 
