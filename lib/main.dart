@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 void main()=>runApp(
   MaterialApp(
-    theme: ThemeData.dark().copyWith(
-      //TODO: if want to change any color of appBar, Floating button change here.
-    ),
+  theme: ThemeData(
+    //TODO: apply theme here.
+  ),
     routes: {
       //TODO: add routes here
       MainPage.mainPage: (context)=>MainPage(),

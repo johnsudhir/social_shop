@@ -49,7 +49,9 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _tappedItemIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+                Icons.home
+            ),
             label: 'Home',
             backgroundColor: Colors.white
         ),
