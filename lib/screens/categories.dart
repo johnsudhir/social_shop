@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Category extends StatefulWidget {
+class Categories extends StatefulWidget {
 
-
+  static const String category = "Category";
   @override
-  State<Category> createState() => _CategoryState();
+  State<Categories> createState() => _CategoriesState();
 }
 
-class _CategoryState extends State<Category> {
+class _CategoriesState extends State<Categories> {
    List<Widget> gridCategory = getGridViewCategory();
 
   @override
